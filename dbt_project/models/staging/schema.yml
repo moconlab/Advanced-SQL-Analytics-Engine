@@ -1,0 +1,82 @@
+version: 2
+
+sources:
+  - name: raw
+    description: Raw data tables from data generation scripts
+    tables:
+      - name: raw_users
+        description: Raw user data
+        columns:
+          - name: user_id
+            description: Unique user identifier
+            tests:
+              - unique
+              - not_null
+      
+      - name: raw_products
+        description: Raw product catalog
+        columns:
+          - name: product_id
+            description: Unique product identifier
+            tests:
+              - unique
+              - not_null
+      
+      - name: raw_events
+        description: Raw event stream data
+        columns:
+          - name: event_id
+            description: Unique event identifier
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: User who triggered the event
+            tests:
+              - not_null
+      
+      - name: raw_sales
+        description: Raw sales transactions
+        columns:
+          - name: sale_id
+            description: Unique sale identifier
+            tests:
+              - unique
+              - not_null
+
+models:
+  - name: stg_users
+    description: Cleaned and standardized user data
+    columns:
+      - name: user_id
+        description: Unique user identifier
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_products
+    description: Cleaned and standardized product catalog
+    columns:
+      - name: product_id
+        description: Unique product identifier
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_events
+    description: Cleaned and standardized event stream
+    columns:
+      - name: event_id
+        description: Unique event identifier
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_sales
+    description: Cleaned and standardized sales (completed orders only)
+    columns:
+      - name: sale_id
+        description: Unique sale identifier
+        tests:
+          - unique
+          - not_null
