@@ -2,7 +2,7 @@
 
 A comprehensive demonstration of expert-level SQL analytics using large-scale synthetic datasets and modern data warehousing platforms (Snowflake & BigQuery).
 
-## 🎯 Project Overview
+## Project Overview
 
 This project showcases advanced SQL analytics techniques through:
 
@@ -11,7 +11,7 @@ This project showcases advanced SQL analytics techniques through:
 - **Performance Optimization**: Partitioning, clustering, indexing strategies
 - **Modern Stack**: dbt models, Snowflake/BigQuery compatible SQL
 
-## 📊 Key Features
+## Key Features
 
 ### 1. Synthetic Data Generation
 - **Sales Data**: 500,000 transactions across 2 years
@@ -54,7 +54,7 @@ This project showcases advanced SQL analytics techniques through:
 - Query optimization patterns
 - Cost monitoring and analysis
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -109,7 +109,7 @@ dbt run
 dbt test
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Advanced-SQL-Analytics-Engine/
@@ -144,7 +144,7 @@ Advanced-SQL-Analytics-Engine/
     └── PERFORMANCE_TUNING.md     # Performance optimization guide
 ```
 
-## 📖 Documentation
+## Documentation
 
 ### Core Concepts
 
@@ -167,7 +167,7 @@ Platform-specific tuning guides:
 - **Snowflake**: [sql/queries/performance_tuning/snowflake_performance_tuning.sql](sql/queries/performance_tuning/snowflake_performance_tuning.sql)
 - **BigQuery**: [sql/queries/performance_tuning/bigquery_performance_tuning.sql](sql/queries/performance_tuning/bigquery_performance_tuning.sql)
 
-## 🔍 Key Queries
+## Key Queries
 
 ### Customer Lifetime Value
 ```sql
@@ -208,7 +208,7 @@ FROM funnel_metrics
 ORDER BY event_date DESC;
 ```
 
-## 💡 Use Cases
+## Use Cases
 
 This project demonstrates skills relevant to:
 
@@ -217,7 +217,7 @@ This project demonstrates skills relevant to:
 - **Data Engineering**: ETL/ELT pipelines, data modeling, performance optimization
 - **Data Science**: Feature engineering for ML models, cohort-based predictions
 
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 By studying this project, you'll learn:
 
@@ -227,7 +227,7 @@ By studying this project, you'll learn:
 4. **Modern Data Stack**: dbt transformations, version control for analytics, testing
 5. **Cloud Data Warehouses**: Platform-specific features of Snowflake and BigQuery
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **SQL**: Primary language for all analytics
 - **dbt**: Data transformation and modeling
@@ -235,7 +235,7 @@ By studying this project, you'll learn:
 - **BigQuery**: Cloud data warehouse (option 2)
 - **Python**: Minimal usage for dbt setup only
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 On a dataset of 5M events and 500K sales:
 
@@ -248,7 +248,7 @@ On a dataset of 5M events and 500K sales:
 
 *Benchmarks based on BigQuery on-demand pricing. Actual costs vary by platform and configuration.*
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Areas for expansion:
 
@@ -258,17 +258,17 @@ Contributions are welcome! Areas for expansion:
 - Machine learning integration
 - Advanced visualization examples
 
-## 📄 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by real-world analytics challenges at scale
 - Built with best practices from data engineering and analytics communities
 - Techniques drawn from industry-leading companies (Amplitude, Mixpanel, Google Analytics)
 
-## 📧 Contact
+## Contact
 
 For questions or feedback, please open an issue on GitHub.
 
