@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: window_functions_analysis
+    description: |
+      Advanced window functions analysis including running totals, rankings, 
+      moving averages, and percentiles for sales data.
+    columns:
+      - name: purchase_date
+        description: Date of purchase transaction
+      - name: user_id
+        description: Unique identifier for user
+      - name: product_id
+        description: Unique identifier for product
+      - name: user_lifetime_value
+        description: Running total of all purchases by user up to this transaction
+      - name: category_cumulative_revenue
+        description: Running total of revenue for product category
+      - name: purchase_number
+        description: Sequential purchase number for this user (1st, 2nd, 3rd, etc.)
+      - name: category_revenue_rank
+        description: Ranking of this purchase within product category by revenue
+      - name: category_7day_moving_avg
+        description: 7-day moving average of category revenue
+      - name: category_30day_moving_avg
+        description: 30-day moving average of category revenue
+      - name: days_since_last_purchase
+        description: Number of days since user's previous purchase
+      - name: region_quartile
+        description: Which quartile (1-4) this purchase falls into by region
+        
+  - name: sessionization
+    description: |
+      User sessions identified by grouping events with gaps <= 30 minutes.
+      Includes session duration, event counts, and quality metrics.
+    columns:
+      - name: session_id
+        description: Unique identifier for session (user_id-session_number)
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: User who owns this session
+      - name: user_session_number
+        description: Sequential session number for this user
+      - name: session_start
+        description: Timestamp of first event in session
+      - name: session_end
+        description: Timestamp of last event in session
+      - name: events_in_session
+        description: Total number of events in this session
+      - name: session_duration_minutes
+        description: Duration of session in minutes
+      - name: engagement_score
+        description: Weighted score based on event types (higher = more engaged)
+      - name: session_quality
+        description: Categorization of session (High Intent, Medium Intent, etc.)
+        
+  - name: cohort_analysis
+    description: |
+      Monthly cohorts tracked over time showing retention rates, revenue,
+      and customer lifetime value metrics.
+    columns:
+      - name: cohort_month
+        description: Month when users in this cohort signed up
+      - name: cohort_age_months
+        description: Number of months since cohort start (0 = signup month)
+      - name: cohort_size
+        description: Total number of users in this cohort
+      - name: active_users
+        description: Number of users from cohort active in this period
+      - name: retention_rate_pct
+        description: Percentage of cohort still active (active_users / cohort_size * 100)
+      - name: total_revenue
+        description: Total revenue from cohort in this period
+      - name: avg_revenue_per_user
+        description: Average revenue per active user in this period
+      - name: cumulative_revenue
+        description: Total revenue from cohort from start through this period
+      - name: ltv_to_date
+        description: Lifetime value per user in cohort up to this period
+        
+  - name: funnel_metrics
+    description: |
+      Daily conversion funnel metrics tracking user progression through
+      page view -> product view -> add to cart -> purchase stages.
+    columns:
+      - name: event_date
+        description: Date of funnel metrics
+      - name: total_users
+        description: Total unique users on this date
+      - name: users_page_view
+        description: Users who reached page view stage
+      - name: users_product_view
+        description: Users who reached product view stage
+      - name: users_add_to_cart
+        description: Users who reached add to cart stage
+      - name: users_purchase
+        description: Users who completed purchase
+      - name: conversion_page_to_product_pct
+        description: Conversion rate from page view to product view
+      - name: conversion_product_to_cart_pct
+        description: Conversion rate from product view to add to cart
+      - name: conversion_cart_to_purchase_pct
+        description: Conversion rate from add to cart to purchase
+      - name: conversion_overall_pct
+        description: Overall conversion rate from page view to purchase
+      - name: dropoff_add_to_cart_pct
+        description: Percentage of users who abandon cart (don't complete purchase)
+      - name: avg_order_value
+        description: Average purchase amount for users who converted
+      - name: revenue_per_user
+        description: Total revenue divided by total users

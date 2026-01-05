@@ -1,0 +1,50 @@
+name: 'advanced_sql_analytics'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'advanced_sql_analytics'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  advanced_sql_analytics:
+    # Config for staging models
+    staging:
+      +materialized: view
+      +schema: staging
+    
+    # Config for marts models
+    marts:
+      analytics:
+        +materialized: table
+        +schema: analytics
+      performance:
+        +materialized: incremental
+        +schema: performance
+        +unique_key: id
+        +on_schema_change: "fail"
+
+seeds:
+  advanced_sql_analytics:
+    +schema: raw_data
+
+vars:
+  # Date range for analysis
+  analysis_start_date: '2023-01-01'
+  analysis_end_date: '2024-12-31'
+  
+  # Sessionization parameters
+  session_timeout_minutes: 30
+  
+  # Cohort analysis parameters
+  cohort_periods: 12

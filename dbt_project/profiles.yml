@@ -1,0 +1,29 @@
+# Example profiles for Snowflake and BigQuery
+# Copy this file to ~/.dbt/profiles.yml and update with your credentials
+
+advanced_sql_analytics:
+  target: snowflake  # or bigquery
+  
+  outputs:
+    snowflake:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'ANALYST') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'ANALYTICS') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'COMPUTE_WH') }}"
+      schema: public
+      threads: 4
+      client_session_keep_alive: False
+    
+    bigquery:
+      type: bigquery
+      method: service-account
+      project: "{{ env_var('GCP_PROJECT') }}"
+      dataset: analytics
+      threads: 4
+      timeout_seconds: 300
+      location: US
+      priority: interactive
+      keyfile: "{{ env_var('GCP_KEYFILE_PATH') }}"
