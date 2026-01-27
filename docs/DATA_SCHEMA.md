@@ -137,6 +137,8 @@ Staging models clean and standardize raw data:
 - Filter to valid records
 - Add loaded_at timestamp
 - Standardize column names
+- Standardize dates
+- Add currency column
 
 ### Analytics Layer Models
 
@@ -301,7 +303,7 @@ dbt test
 ### Query Patterns
 
 **Optimized:**
-- Filter on partition columns (date)
+- Filter on partition columns (month, date)
 - Filter on clustering columns (user_id, product_id)
 - Select only needed columns
 - Predicate pushdown (filter before join)
