@@ -95,7 +95,7 @@ GROUP BY user_id
 ORDER BY total_spent DESC;
 
 -- ============================================================================
--- 4. LAG AND LEAD FOR TIME-BASED ANALYSIS
+-- 4. LAG AND LEAD FOR TIME-BASED ANALYTICS
 -- ============================================================================
 
 -- Time between purchases for each user
