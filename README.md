@@ -1,6 +1,6 @@
 # Advanced SQL Analytics Engine
 
-A comprehensive demonstration of advanced-level SQL analytics using large-scale synthetic datasets and modern data warehousing platforms (Snowflake & BigQuery).
+A comprehensive demonstration of advanced level SQL analytics using large scale synthetic datasets and modern data warehousing platforms (Snowflake & BigQuery).
 
 ## Project Overview
 
